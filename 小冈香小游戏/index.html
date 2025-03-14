@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小冈香制作大师</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- 第一页：开始游戏 -->
+        <div id="start-page" class="page">
+            <h1>小冈香制作大师</h1>
+            <button id="start-button">开始游戏</button>
+        </div>
+
+        <!-- 第二页：混合香料 -->
+        <div id="mix-page" class="page hidden">
+            <h2>混合香料</h2>
+            <div id="ingredients">
+                <div class="ingredient" draggable="true" data-id="沉香">
+                    <img src="沉香.png" alt="沉香">
+                    <p>沉香</p>
+                </div>
+                <div class="ingredient" draggable="true" data-id="檀香">
+                    <img src="檀香.png" alt="檀香">
+                    <p>檀香</p>
+                </div>
+                <div class="ingredient" draggable="true" data-id="艾草">
+                    <img src="艾草.png" alt="艾草">
+                    <p>艾草</p>
+                </div>
+                <div class="ingredient" draggable="true" data-id="龙脑香">
+                    <img src="龙脑香.png" alt="龙脑香">
+                    <p>龙脑香</p>
+                </div>
+                <div class="ingredient" draggable="true" data-id="丁香">
+                    <img src="丁香.png" alt="丁香">
+                    <p>丁香</p>
+                </div>
+                <div class="ingredient" draggable="true" data-id="肉桂">
+                    <img src="肉桂.png" alt="肉桂">
+                    <p>肉桂</p>
+                </div>
+                <div class="ingredient" draggable="true" data-id="白芷">
+                    <img src="白芷.png" alt="白芷">
+                    <p>白芷</p>
+                </div>
+                <div class="ingredient" draggable="true" data-id="陈皮">
+                    <img src="陈皮.png" alt="陈皮">
+                    <p>陈皮</p>
+                </div>
+            </div>
+            <div id="mix-area" class="mix-area"></div>
+            <button id="mix-complete-button" disabled>混合完成</button>
+        </div>
+
+        <!-- 第三页：搓香 -->
+        <div id="roll-page" class="page hidden">
+            <h2>搓香</h2>
+            <div id="roll-area">
+                <img id="mixed-herbs-before" src="mixed-herbs-before.png" alt="混合前的香">
+                <img id="mixed-herbs-after" src="mixed-herbs-after.png" alt="混合后的香" class="hidden">
+            </div>
+            <button id="roll-complete-button" disabled>搓制完成</button>
+            <button id="restart-roll-button" class="hidden">重新制作</button>
+            <div id="result"></div>
+        </div>
+
+        <!-- 第四页：晾晒 -->
+        <div id="dry-page" class="page hidden">
+            <h2>晾晒</h2>
+            <div id="sun-animation">☀️</div>
+            <div id="calibration-bar">
+                <div id="pointer"></div>
+                <div id="calibration-point"></div>
+            </div>
+            <button id="dry-complete-button">晾晒完成</button>
+            <div id="result"></div>
+        </div>
+
+        <!-- 第五页：游戏结束 -->
+        <div id="end-page" class="page hidden">
+            <h2>游戏结束</h2>
+            <p>恭喜你，成功完成了小冈香的制作！这不仅仅是一支香，更是一份传承了千年的文化瑰宝。从选料到成型，每一道工序都凝聚着匠人们的智慧与心血，也承载着中华民族对美好生活的祈愿。
+
+小冈香，香飘万里，连接古今。愿你手中的这支香，不仅能带来片刻的宁静与安详，更能让你感受到中华文化的博大精深。让我们一起，守护非遗，传承匠心，让这份珍贵的文化遗产薪火相传，生生不息！</p>
+            <img id="final-incense" src="final-incense.png" alt="小冈香完成效果">
+            <p id="final-result"></p>
+            <button id="restart-button">重新开始</button>
+        </div>
+    </div>
+
+    <!-- 音效 -->
+    <audio id="background-music" loop>
+        <source src="background-music.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="mix-sound">
+        <source src="mix-sound.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="roll-sound">
+        <source src="roll-sound.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
