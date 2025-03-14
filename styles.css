@@ -1,0 +1,192 @@
+body {
+    font-family: 'Georgia', serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    background-image: url('wood-texture.jpg');
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    color: #5a3e36;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.hidden {
+    display: none;
+}
+
+#ingredients {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px;
+}
+
+.ingredient {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: grab;
+    border-radius: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.ingredient:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.ingredient img {
+    width: 50px;
+    height: 50px;
+}
+
+.mix-area {
+    width: 200px;
+    height: 100px;
+    border: 2px dashed #ccc;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+}
+
+#roll-area {
+    width: 300px;
+    height: 200px;
+    border: 2px solid #ccc;
+    margin: 20px;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#mixed-herbs-before,
+#mixed-herbs-after {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 1s;
+}
+
+#mixed-herbs-after {
+    opacity: 0;
+}
+
+#sun-animation {
+    font-size: 50px;
+    animation: sun-move 2s infinite;
+}
+
+@keyframes sun-move {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+#calibration-bar {
+    width: 200px;
+    height: 20px;
+    background-color: #ddd;
+    margin: 20px auto;
+    position: relative;
+    border-radius: 10px;
+}
+
+#pointer {
+    width: 2px;
+    height: 100%;
+    background-color: #000;
+    position: absolute;
+    left: 0;
+    animation: pointer-move 2s infinite linear;
+}
+
+@keyframes pointer-move {
+    0% { left: 0; }
+    100% { left: 100%; }
+}
+
+#calibration-point {
+    width: 10px;
+    height: 100%;
+    background-color: red;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+}
+
+#result {
+    margin: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#final-result {
+    font-size: 20px;
+    color: #654321;
+}
+
+#final-incense {
+    width: 200px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 重新制作按钮样式 */
+#restart-roll-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+#restart-roll-button:hover {
+    background-color: #ff4c4c;
+}
+
+/* 游戏按钮通用样式 */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #5a3e36;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #654321;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
